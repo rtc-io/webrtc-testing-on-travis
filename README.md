@@ -4,7 +4,29 @@ This is a set of scripts designed to help you get up and running testing WebRTC 
 
 ## Usage
 
-To be completed
+First, create a `.travis.yml` folder in your project that looks similar to the followng:
+
+```yaml
+language: node_js
+node_js:
+- 0.10
+
+env:
+  matrix:
+    - BROWSER=chrome  BVER=stable
+    - BROWSER=chrome  BVER=beta
+    - BROWSER=chrome  BVER=unstable
+    - BROWSER=firefox BVER=stable
+    - BROWSER=firefox BVER=beta
+    - BROWSER=firefox BVER=aurora
+
+before_install:
+  - mkdir -p .travis
+  - curl -s https://codeload.github.com/DamonOehlman/webrtc-testing-on-travis/tar.gz/master | tar -xz --strip-components=1 --directory .travis
+  - ./.travis/setup.sh
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+```
 
 ## Prior Art
 
