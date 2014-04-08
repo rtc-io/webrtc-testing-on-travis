@@ -28,6 +28,10 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 ```
 
+The most interesting part of the configuration file above is definitely the [`before_install`](http://docs.travis-ci.com/user/build-configuration/#before_install) section which defines a number of commands that will be executed in the TRAVIS environment prior to running the language appropriate `install` command.
+
+The commands above are used to pull down the contents of this repository into a `.travis` within the travis build environment.  Once this is completed, the `./travis/setup.sh` command is run which will knows how to provision a browser based on a `BROWSER` (specifying the browser name) and `BVER` which defines the version to test.  This script is an only very slightly modified version of the [.travis-setup.sh](https://github.com/web-animations/web-animations-js/blob/master/.travis-setup.sh) script written by [@mithro](https://github.com/mithro).
+
 ## Prior Art
 
 None of this would have been possible without the docs and code listed below:
