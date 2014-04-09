@@ -63,4 +63,4 @@ firefox)
 esac
 
 # setup the loopback video
-./setup-loopbackvideo.sh
+# ./setup-loopbackvideo.sh
