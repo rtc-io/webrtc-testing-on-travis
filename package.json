@@ -1,0 +1,21 @@
+{
+  "name": "webrtc-testing-on-travis",
+  "private": true,
+  "scripts": {
+    "test": "testling -x ./start-$BROWSER.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DamonOehlman/webrtc-testing-on-travis.git"
+  },
+  "author": "Damon Oehlman <damon.oehlman@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "tape": "^2",
+    "rtc-media": "^1",
+    "testling": "^1"
+  },
+  "testling": {
+    "files": "test/all.js"
+  }
+}

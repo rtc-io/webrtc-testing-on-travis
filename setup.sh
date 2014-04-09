@@ -62,5 +62,5 @@ firefox)
   ;;
 esac
 
-# R=tools/python/requirements.txt
-# pip install -r $R --use-mirrors || pip install -r $R
+# setup the loopback video
+./setup-loopbackvideo.sh

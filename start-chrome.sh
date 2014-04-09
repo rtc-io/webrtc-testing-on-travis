@@ -5,6 +5,5 @@ EXTRA_OPTS="--no-sandbox --disable-setuid-sandbox --allow-sandbox-debugging"
 google-chrome \
   --console \
   --no-first-run $DEBUG_OPTS \
-  --use-fake-device-for-media-stream \
   --use-fake-ui-for-media-stream $@ \
   --user-data-dir
