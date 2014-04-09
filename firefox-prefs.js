@@ -9,3 +9,10 @@
  */
 
 user_pref("media.navigator.permission.disabled", true);
+user_pref("device.storage.enabled", true);
+user_pref("devtools.debugger.remote-enabled", true);
+user_pref("devtools.debugger.chrome-enabled", true);
+user_pref("devtools.chrome.enabled", true);
+user_pref("browser.tabs.warnOnClose", false);
+user_pref("browser.tabs.warnOnCloseOtherTabs", false);
+user_pref("app.update.auto", false);
