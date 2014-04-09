@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 yes "\n" | sudo add-apt-repository -y ppa:gstreamer-developers/ppa
 sudo apt-get update --fix-missing
-sudo apt-get install build-essential gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-good libvpx1 libopus0
+sudo apt-get install linux-headers-$(uname -r) build-essential gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-good libvpx1 libopus0
 
 # compile the v4l loopback driver
 git clone https://github.com/umlaeute/v4l2loopback.git
