@@ -75,6 +75,12 @@ For testing locally, I have a cloned version of this repo checked out on my loca
 BROWSER=chrome npm start
 ```
 
+## Understanding Fake Media Devices
+
+Both chrome and firefox provide approaches for simulating media capture with "fake" media devices.  It is important to note, however, that the approach outlined here will only provide fake media streams on chrome.  When testing rtc.io modules we typically make use of [rtc-media](https://github.com/rtc-io/rtc-media) as we have enabled use of firefox's "fake" capture constraint when we detect that we are running in a testling run testing environment:
+
+https://github.com/rtc-io/rtc-media/commit/7b6cbce0efb2010e5218dfef0ea53b514385a395
+
 ## Prior Art
 
 None of this would have been possible without the docs and code listed below:
