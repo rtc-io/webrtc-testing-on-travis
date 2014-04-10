@@ -9,4 +9,4 @@ if [ -f ./firefox-prefs.js ]; then
 fi
 # printf "{\n\"created\": $(date +%s%N | cut -b1-13)\n}" > $PROFILE_DIR/times.json
 
-firefox -profile $PROFILE_DIR $@
+AUDIODEV=null firefox -profile $PROFILE_DIR $@
