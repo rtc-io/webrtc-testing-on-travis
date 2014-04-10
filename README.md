@@ -22,7 +22,7 @@ env:
 
 before_install:
   - mkdir -p .travis
-  - curl -s https://codeload.github.com/DamonOehlman/webrtc-testing-on-travis/tar.gz/master | tar -xz --strip-components=1 --directory .travis
+  - curl -s https://codeload.github.com/rtc-io/webrtc-testing-on-travis/tar.gz/master | tar -xz --strip-components=1 --directory .travis
   - ./.travis/setup.sh
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
