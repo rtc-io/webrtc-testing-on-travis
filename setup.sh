@@ -55,7 +55,7 @@ firefox)
     ;;
   esac
   sudo apt-get update --fix-missing
-  sudo apt-get install firefox
+  sudo apt-get install firefox pulseaudio
   which firefox
   ls -l `which firefox`
   firefox --version
