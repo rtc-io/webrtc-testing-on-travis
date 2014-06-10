@@ -9,7 +9,7 @@ test('MediaStream constructor is defined', function(t) {
 test('can capture a media stream', function(t) {
   var handleError = t.ifError.bind(t);
   var localMedia;
-  var timer = setTimeout(t.fail.bind(t, 'timed out'), 5000);
+  var timer = setTimeout(t.fail.bind(t, 'timed out'), 30000);
 
   t.plan(3);
 
