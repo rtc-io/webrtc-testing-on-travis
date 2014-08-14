@@ -64,7 +64,7 @@ esac
 
 # setup the virtual environment
 # as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
-source ./venv.sh
+./venv.sh
 
 # setup the loopback video
 # ./setup-loopbackvideo.sh
