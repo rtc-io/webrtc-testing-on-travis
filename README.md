@@ -20,7 +20,14 @@ env:
     - BROWSER=chrome  BVER=unstable
     - BROWSER=firefox BVER=stable
     - BROWSER=firefox BVER=beta
-    - BROWSER=firefox BVER=aurora
+    - BROWSER=firefox BVER=nightly
+
+matrix:
+  fast_finish: true
+
+  allowed_failures:
+    - env: BROWSER=chrome  BVER=unstable
+    - env: BROWSER=firefox BVER=nightly
 
 before_install:
   - ./setup.sh
