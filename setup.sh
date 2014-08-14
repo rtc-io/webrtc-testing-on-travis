@@ -28,19 +28,19 @@ chrome)
   sudo dpkg --install $CHROME || sudo apt-get -f install
   which google-chrome
   ls -l `which google-chrome`
-  
+
   if [ -f /opt/google/chrome/chrome-sandbox ]; then
     export CHROME_SANDBOX=/opt/google/chrome/chrome-sandbox
   else
     export CHROME_SANDBOX=$(ls /opt/google/chrome*/chrome-sandbox)
   fi
-  
+
   # Download a custom chrome-sandbox which works inside OpenVC containers (used on travis).
   sudo rm -f $CHROME_SANDBOX
   sudo wget https://googledrive.com/host/0B5VlNZ_Rvdw6NTJoZDBSVy1ZdkE -O $CHROME_SANDBOX
   sudo chown root:root $CHROME_SANDBOX; sudo chmod 4755 $CHROME_SANDBOX
   sudo md5sum $CHROME_SANDBOX
-  
+
   google-chrome --version
   ;;
 
@@ -61,6 +61,10 @@ firefox)
   firefox --version
   ;;
 esac
+
+# setup the virtual environment
+# as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
+source ./venv.sh
 
 # setup the loopback video
 # ./setup-loopbackvideo.sh
