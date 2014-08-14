@@ -7,6 +7,16 @@ ls -l /dev/shm
 sudo chmod 1777 /dev/shm
 ls -l /dev/shm
 
+# determine the script path
+# ref: http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
+pushd `dirname $0` > /dev/null
+SCRIPTPATH=`pwd -P`
+popd > /dev/null
+
+# setup the virtual environment
+# as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
+source $SCRIPTPATH/venv.sh
+
 uname -a
 cat /etc/lsb-release
 
@@ -61,10 +71,6 @@ firefox)
   firefox --version
   ;;
 esac
-
-# setup the virtual environment
-# as per: https://github.com/mozilla-b2g/gaia/blob/master/.travis.yml#L3
-./venv.sh
 
 # setup the loopback video
 # ./setup-loopbackvideo.sh
