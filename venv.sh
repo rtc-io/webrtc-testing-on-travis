@@ -12,9 +12,9 @@ setup_venv() {
     virtualenv $DIR_TEST_ENV
   else
     echo "downloading virtualenv from ${URL_VIRTUALENV}"
-    curl -O ${URL_VIRTUALENV}
-    tar xvfz virtualenv-${VERSION_VIRTUALENV}.tar.gz
-    python virtualenv-${VERSION_VIRTUALENV}/virtualenv.py ${DIR_TEST_ENV}
+    mkdir -p virtualenv
+    curl -s ${URL_VIRTUALENV} | tar -xz --strip-components=1 --directory virtualenv
+    python virtualenv/virtualenv.py ${DIR_TEST_ENV}
   fi
 
   source $DIR_TEST_ENV/bin/activate
