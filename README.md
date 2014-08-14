@@ -21,11 +21,14 @@ env:
     - BROWSER=firefox BVER=aurora
 
 before_install:
-  - mkdir -p .travis
-  - curl -s https://codeload.github.com/rtc-io/webrtc-testing-on-travis/tar.gz/master | tar -xz --strip-components=1 --directory .travis
-  - ./.travis/setup.sh
+  - ./setup.sh
+
+before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+
+after_failure:
+  - for file in *.log; do echo $file; echo "======================"; cat $file; done || true
 ```
 
 The most interesting part of the configuration file above is definitely the [`before_install`](http://docs.travis-ci.com/user/build-configuration/#before_install) section which defines a number of commands that will be executed in the TRAVIS environment prior to running the language appropriate `install` command.
