@@ -2,6 +2,19 @@
 set -x
 set -e
 
+# firefox base details
+MOZILLA_BUILDS=http://ftp.mozilla.org/pub/mozilla.org/firefox
+
+function firefoxRelease {
+  echo $MOZILLA_BUILDS/releases/$1/linux-x86_64/en-US/firefox-$1.tar.bz2
+}
+
+# initialise the firefox versions
+declare -A FIREFOX_VERSIONS
+FIREFOX_VERSIONS[stable]=$(firefoxRelease 31.0)
+FIREFOX_VERSIONS[beta]=$(firefoxRelease 32.0b6)
+FIREFOX_VERSIONS[nightly]=$MOZILLA_BUILDS/nightly/latest-trunk/firefox-34.0a1.en-US.linux-i686.tar.bz2
+
 # Make sure /dev/shm has correct permissions.
 ls -l /dev/shm
 sudo chmod 1777 /dev/shm
@@ -56,16 +69,14 @@ chrome)
 
 firefox)
   sudo rm -f /usr/local/bin/firefox
-  case $BVER in
-  beta)
-    yes "\n" | sudo add-apt-repository -y ppa:mozillateam/firefox-next
-    ;;
-  aurora)
-    yes "\n" | sudo add-apt-repository -y ppa:ubuntu-mozilla-daily/firefox-aurora
-    ;;
-  esac
-  sudo apt-get update --fix-missing
-  sudo apt-get install firefox pulseaudio
+  sudo apt-get install pulseaudio
+
+  sudo mkdir -p /opt/firefox/$BVER
+  sudo chown $USER:$USER /opt/firefox/$BVER
+  wget ${FIREFOX_VERSIONS[$BVER]} -O firefox.tar.bz2
+  tar xjf firefox.tar.bz2 --strip-components=1 --directory /opt/firefox/$BVER
+  sudo ln /opt/firefox/$BVER/firefox /usr/local/bin/firefox -s
+
   which firefox
   ls -l `which firefox`
   firefox --version
