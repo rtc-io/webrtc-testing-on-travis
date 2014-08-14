@@ -13,7 +13,7 @@ function firefoxRelease {
 declare -A FIREFOX_VERSIONS
 FIREFOX_VERSIONS[stable]=$(firefoxRelease 31.0)
 FIREFOX_VERSIONS[beta]=$(firefoxRelease 32.0b6)
-FIREFOX_VERSIONS[nightly]=$MOZILLA_BUILDS/nightly/latest-trunk/firefox-34.0a1.en-US.linux-i686.tar.bz2
+FIREFOX_VERSIONS[nightly]=$MOZILLA_BUILDS/nightly/latest-trunk/firefox-34.0a1.en-US.linux-x86_64.tar.bz2
 
 # Make sure /dev/shm has correct permissions.
 ls -l /dev/shm
