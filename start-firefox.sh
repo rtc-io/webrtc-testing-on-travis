@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 FIREFOX_COMMAND=${FIREFOX_COMMAND-firefox}
-FIREFOX_HOME=$HOME/.mozilla/$FIREFOX_COMMAND
+FIREFOX_HOME=$HOME/.mozilla/firefox
 
 # determine the script path
 # ref: http://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
