@@ -2,6 +2,8 @@
 
 This is a set of scripts designed to help you get up and running testing WebRTC applications on [travis](http://travis-ci.org). The scripts themselves are designed to be fetched during a travis `before_install` process and used to prepare your environment.
 
+[![Build Status](https://travis-ci.org/rtc-io/webrtc-testing-on-travis.svg?branch=master)](https://travis-ci.org/rtc-io/webrtc-testing-on-travis)
+
 ## Usage
 
 First, create a `.travis.yml` folder in your project that looks similar to the followng:
