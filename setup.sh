@@ -11,9 +11,9 @@ function firefoxRelease {
 
 # initialise the firefox versions
 declare -A FIREFOX_VERSIONS
-FIREFOX_VERSIONS[stable]=$(firefoxRelease 32.0)
-FIREFOX_VERSIONS[beta]=$(firefoxRelease 33.0b1)
-FIREFOX_VERSIONS[nightly]=$MOZILLA_BUILDS/nightly/latest-trunk/firefox-35.0a1.en-US.linux-x86_64.tar.bz2
+FIREFOX_VERSIONS[stable]=$(firefoxRelease 34.0)
+FIREFOX_VERSIONS[beta]=$(firefoxRelease 35.0b1)
+FIREFOX_VERSIONS[nightly]=$MOZILLA_BUILDS/nightly/latest-trunk/firefox-37.0a1.en-US.linux-x86_64.tar.bz2
 
 # Make sure /dev/shm has correct permissions.
 ls -l /dev/shm
