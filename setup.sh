@@ -14,7 +14,7 @@ SCRIPTPATH=`pwd -P`
 popd > /dev/null
 
 # download the firefox version information from the travis-multirunner configuration
-wget https://raw.githubusercontent.com/DamonOehlman/travis-multirunner/master/firefox-versions.sh
+wget -O $SCRIPTPATH/firefox-versions.sh -quiet https://raw.githubusercontent.com/DamonOehlman/travis-multirunner/master/firefox-versions.sh
 source $SCRIPTPATH/firefox-versions.sh
 
 # setup the virtual environment
